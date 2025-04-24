@@ -1,65 +1,59 @@
-C $Header: /u/gcmpack/MITgcm_contrib/llc_hires/llc_4320/code/SIZE.h_45x45x73408,v 1.2 2016/04/14 03:51:44 dimitri Exp $
-C $Name:  $
+# ====================
+# | Model parameters |
+# ====================
 
-C
-CBOP
-C    !ROUTINE: SIZE.h
-C    !INTERFACE:
-C    include SIZE.h
-C    !DESCRIPTION: \bv
-C     *==========================================================*
-C     | SIZE.h Declare size of underlying computational grid.     
-C     *==========================================================*
-C     | The design here support a three-dimensional model grid    
-C     | with indices I,J and K. The three-dimensional domain      
-C     | is comprised of nPx*nSx blocks of size sNx along one axis 
-C     | nPy*nSy blocks of size sNy along another axis and one     
-C     | block of size Nz along the final axis.                    
-C     | Blocks have overlap regions of size OLx and OLy along the 
-C     | dimensions that are subdivided.                           
-C     *==========================================================*
-C     \ev
-CEOP
-C     Voodoo numbers controlling data layout.
-C     sNx :: No. X points in sub-grid.
-C     sNy :: No. Y points in sub-grid.
-C     OLx :: Overlap extent in X.
-C     OLy :: Overlat extent in Y.
-C     nSx :: No. sub-grids in X.
-C     nSy :: No. sub-grids in Y.
-C     nPx :: No. of processes to use in X.
-C     nPy :: No. of processes to use in Y.
-C     Nx  :: No. points in X for the total domain.
-C     Ny  :: No. points in Y for the total domain.
-C     Nr  :: No. points in Z for full process domain.
-      INTEGER sNx
-      INTEGER sNy
-      INTEGER OLx
-      INTEGER OLy
-      INTEGER nSx
-      INTEGER nSy
-      INTEGER nPx
-      INTEGER nPy
-      INTEGER Nx
-      INTEGER Ny
-      INTEGER Nr
-      PARAMETER (
-     &           sNx =  120,
-     &           sNy =  90,
-     &           OLx =   4,
-     &           OLy =   4,
-     &           nSx =   1,
-     &           nSy =   1,
-     &           nPx =  2,
-     &           nPy =  4,
-     &           Nx  = sNx*nSx*nPx,
-     &           Ny  = sNy*nSy*nPy,
-     &           Nr  =  50 )
+# Continuous equation parameters
+ &PARM01
+ select_rStar=2,
+ nonlinFreeSurf=4,
+ implicitDiffusion=.TRUE.,
+ implicitViscosity=.TRUE.,
+ tempAdvScheme=7,
+ saltAdvScheme=7,
+ StaggerTimeStep=.TRUE.,
+ useSingleCPUio=.TRUE.,
+ exactConserv=.TRUE.,
+ useRealFreshWaterFlux=.TRUE.,
+ debugLevel=0,
+ &
 
-C     MAX_OLX :: Set to the maximum overlap region size of any array
-C     MAX_OLY    that will be exchanged. Controls the sizing of exch
-C                routine buffers.
-      INTEGER MAX_OLX
-      INTEGER MAX_OLY
-      PARAMETER ( MAX_OLX = OLx,
-     &            MAX_OLY = OLy )
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=300,
+ cg2dTargetResidual=1.E-10,
+ &
+
+# Time stepping parameters
+ &PARM03
+ niter0=0,
+ deltaT=300.,
+ nTimeSteps = 105120,
+ pChkptFreq=2592000.,
+ dumpInitAndLast=.FALSE.,
+ writePickupAtEnd=.TRUE.,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingSphericalPolarGrid=.TRUE.,
+ delX=240*0.083333,
+ delY=360*0.0625,
+ xgOrigin=-135,
+ ygOrigin=29,
+ delR = 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.01,
+        10.03, 10.11, 10.32, 10.80, 11.76, 13.42, 16.04, 19.82, 24.85,
+        31.10, 38.42, 46.50, 55.00, 63.50, 71.58, 78.90, 85.15, 90.18,
+        93.96, 96.58, 98.25, 99.25,100.01,101.33,104.56,111.33,122.83,
+        139.09,158.94,180.83,203.55,226.50,249.50,272.50,295.50,318.50,
+        341.50,364.50,387.50,410.50,433.50,456.50,
+ &
+
+# Input datasets
+ &PARM05
+ bathyFile = 'CA_bathymetry.bin',
+ hydrogThetaFile = 'THETA_IC.bin',
+ hydrogSaltFile = 'SALT_IC.bin',
+ uVelInitFile = 'UVEL_IC.bin',
+ vVelInitFile = 'VVEL_IC.bin',
+ pSurfInitFile = 'ETAN_IC.bin',
+ &
