@@ -73,6 +73,16 @@ C   default because it is an unpopular historical left-over
 C o Include/exclude call to S/R CALC_DIFFUSIVITY
 #define INCLUDE_CALC_DIFFUSIVITY_CALL
 
+
+#define  ALLOW_EXF
+#define  ALLOW_OBCS
+#define  ALLOW_KPP
+#define  ALLOW_SEAICE
+#define  ALLOW_CURVGRID
+#undef   ALLOW_AUTODIFF_TAMC  
+
+  
+
 C o Allow full 3D specification of vertical diffusivity
 #undef ALLOW_3D_DIFFKR
 
