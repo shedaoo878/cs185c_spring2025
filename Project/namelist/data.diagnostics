@@ -1,21 +1,90 @@
 # Diagnostic Package Choices
 #
  &diagnostics_list
+     dumpAtLast = .TRUE.,
+#-- 
+# ATEMP: Hourly Snapshots
 #--
-  fields(1,1) = 'UVEL    ',
-  fileName(1) = 'diags/UVEL/UVEL',
-  frequency(1) =  -2592000.,
+  fields(1,1) = 'ATEMP    ',
+  fileName(1) = 'diags/ATEMP/ATEMP_hrly_snap',
+  frequency(1) =  -3600.,
+#  
+#-- 
+# PRECIP: Hourly Means
 #--
-  fields(1,2) = 'VVEL    ',
-  fileName(2) = 'diags/VVEL/VVEL',
-  frequency(2) =  -2592000.,
-#--
-  fields(1,3) = 'ETAN    ',
-  fileName(3) = 'diags/ETAN/ETAN',
-  frequency(3) =  -2592000.,
+  fields(1,2) = 'PRECIP    ',
+  fileName(2) = 'diags/PRECIP/PRECIP_hrly_mean',
+  frequency(2) =  3600.,
 #
- &
+#-- 
+# UVEL: Hourly Snapshots
+#--
+  fields(1,3)    = 'UVEL    ',
+  fileName(3)    = 'diags/UVEL/UVEL_hrly_snap',
+  frequency(3)   = -3600.,
+#-- 
+# VVEL: Hourly Snapshots
+#--
+  fields(1,4)    = 'VVEL    ',
+  fileName(4)    = 'diags/VVEL/VVEL_hrly_snap',
+  frequency(4)   = -3600.,
+#-- 
+# THETA: 3D Hourly Means
+#--
+  fields(1,5)    = 'THETA   ',
+  fileName(5)    = 'diags/THETA/THETA_3D_hrly_mean',
+  frequency(5)   = 3600.,
+#-- 
+# SALT: 3D Hourly Means
+#--
+  fields(1,6)    = 'SALT    ',
+  fileName(6)    = 'diags/SALT/SALT_3D_hrly_mean',
+  frequency(6)   = 3600.,
+#-- 
+# THETA: Surface Hourly Means
+#--
+  fields(1,7)    = 'THETA   ',
+  fileName(7)    = 'diags/THETA/THETA_surf_hrly_mean',
+  frequency(7)   = 3600.,
+  levels(:,7)    = 1,
+#-- 
+# SALT: Surface Hourly Means
+#--
+  fields(1,8)    = 'SALT    ',
+  fileName(8)    = 'diags/SALT/SALT_surf_hrly_mean',
+  frequency(8)   = 3600.,
+  levels(:,8)    = 1,
+#--
+# SIAREA: Surface Hourly Means
+#--
+  fields(1,9)    = 'SIAREA    ',
+  fileName(9)    = 'diags/SIarea/SIAREA_surf_hrly_mean',  # Corrected path SIarea
+  frequency(9)   = 3600.,
+  levels(:,9)    = 1,
+#--
+# SIheff: Surface Hourly Means
+#--
+  fields(1,10)    = 'SIheff    ',
+  fileName(10)    = 'diags/SIheff/SIHEFF_surf_hrly_mean',
+  frequency(10)   = 3600.,
+  levels(:,10)    = 1,
+#--
+# SIhsnow: Surface Hourly Means
+#--
+  fields(1,11)    = 'SIhsnow    ',
+  fileName(11)    = 'diags/SIhsnow/SIHSNOW_surf_hrly_mean',
+  frequency(11)   = 3600.,
+  levels(:,11)    = 1,
+#--
+# SWDOWN: Surface Hourly Means
+#--
+  fields(1,12)    = 'SWDOWN    ',
+  fileName(12)    = 'diags/SWDOWN/SWDOWN_surf_hrly_mean',
+  frequency(12)   = 3600.,
+  levels(:,12)    = 1,
+#--
+ /
 
 # Parameter for Diagnostics of per level statistics:
  &DIAG_STATIS_PARMS
- &
+ /
