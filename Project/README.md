@@ -4,6 +4,8 @@ Analyzing the past effects of global warming on the Arctic, and understanding th
 
 One of the largest formations of land on our planet is the Arctic ice regions in the north. The goal of this project is to understand the condition of the Arctic over the years, analyze various environmental factors and effects, and build a model which will hopefully allow us to understand what the future of the Arctic region may look like.
 
+The overall science question is, how will the artic sea ice bed continue to be effected with the increasing global temperatures over the next several years? 
+
 ## Configurations of the MITgcm Model
 
 ### Code
