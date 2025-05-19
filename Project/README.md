@@ -95,3 +95,5 @@ If run properly, the simulation should produce several output files.
 - This configuration is set for a short (4.8 day) simulation. For longer runs, adjust `nTimeSteps` in the `data` file  
 - The model is parallelized for **2 MPI processes**, which can be increased if needed  
 - All forcing files are from **2015** and should be changed if needed.
+
+### Additional Artic analysis is provided in the ArticAnalysis.ipynb file, which includes timeseries plots analyzing existing data. An additional omvie of Sea ice concentrations throughout the years since 1992 is also included in the ArticMovie file. 
