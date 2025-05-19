@@ -1,17 +1,11 @@
-&SEAICE_PARM01
- SEAICEuseDynamics = .TRUE.,  ! Enable sea ice dynamics
- usePW79thermodynamics   = .TRUE.,  ! Enable sea ice thermodynamics
-! SEAICE_deltaTtherm = 30.,  
-! SEAICE_deltaTdyn   = 30.,  ! Match your deltaT
- SEAICE_area_reg    = 0.15,   ! Regularization for ice concentration
- SEAICE_hice_reg    = 0.05,   ! Regularization for ice thickness
- AreaFile = "SIarea_IC.bin",
- HeffFile = 'SIheff_IC.bin',
- HsnowFile = 'SIhsnow_IC.bin',
- SEAICEpressReplFac=0.75,
- SEAICEuseFluxForm=.TRUE.,
-/
-&SEAICE_PARM02
-/
-&SEAICE_PARM03
-/
+# Example "eedata" file
+# Lines beginning "#" are comments
+# nTx - No. threads per process in X
+# nTy - No. threads per process in Y
+ &EEPARMS
+ nTx=1,
+ nTy=1,
+ /
+# Note: Some systems use & as the
+# namelist terminator. Other systems
+# use a / character (as shown here).
