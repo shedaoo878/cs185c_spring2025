@@ -3,4 +3,5 @@
  useCAL         = .TRUE.,
  useEXF         = .TRUE.,
  useOBCS        = .TRUE.,
- &
+ useSEAICE      = .TRUE.,
+ /
